@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AutoScrollView">
+        <attr name="sv_left_width" format="integer" />
+        <attr name="sv_right_width" format="integer" />
+        <attr name="sv_move_range" format="integer" />
+        <attr name="sv_margin" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/v_placeholder"
+        android:layout_alignBottom="@+id/rl_scroll"
+        android:layout_marginLeft="25dp"
+        android:background="#FFDA26" />
+
+    <View
+        android:id="@+id/v_placeholder"
+        android:layout_width="1dp"
+        android:layout_height="14dp" />
+
+    <com.gcssloop.widget.RCRelativeLayout
+        android:id="@+id/rl_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/v_placeholder"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@+id/line1"
+        app:round_corner="14dp"
+        app:round_corner_top_left="0dp">
+
+        <com.zihuan.autoscrollview.ZHAutoScrollView
+            android:id="@+id/scroll_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/line1"
+            app:right_width="70"
+            app:zh_margin="85">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/left_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/item_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="#ffffff"
+                        android:gravity="center"
+                        android:tag="slide_flag"
+                        android:text="item"
+                        android:textColor="#333333"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/right_Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_del"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_alignParentRight="true"
+                        android:background="#ffff3b30"
+                        android:gravity="center"
+                        android:text="删除" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.zihuan.autoscrollview.ZHAutoScrollView>
+    </com.gcssloop.widget.RCRelativeLayout>
+
+</RelativeLayout>
