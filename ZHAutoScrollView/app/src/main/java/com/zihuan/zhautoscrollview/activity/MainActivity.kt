@@ -6,13 +6,14 @@ import android.os.Bundle
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
+import com.zihuan.baseadapter.R
 import kotlinx.android.synthetic.main.activity_home.*
 
 
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.zihuan.baseadapter.R.layout.activity_home)
+        setContentView(R.layout.activity_home)
         bt_left_del.setOnClickListener {
             startActivity(Intent(this, LeftSlidDeleteActivity::class.java))
         }

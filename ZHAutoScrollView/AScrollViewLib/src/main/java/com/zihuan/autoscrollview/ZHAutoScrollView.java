@@ -7,12 +7,13 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 
-import com.zihuan.zhautoscrollview.BuildConfig;
 import com.zihuan.baseadapter.R;
+
 
 /****
  */
@@ -35,26 +36,27 @@ public class ZHAutoScrollView extends HorizontalScrollView {
     }
 
     public static final String TAG = ZHAutoScrollView.class.getSimpleName();
-    private boolean isLeft = true;//默认左边
+    private boolean isLeft = false;//默认左边
     private int rightLayoutWidth;
     private int leftLayoutWidth;
+    private int contentLayoutWidth;
     private int margin;//左右边距 当前view距离屏幕左右两边的和
     private int range;//滚动阈值 超过此值后显示
     boolean isIntercept = false;//是否拦截事件
+    private boolean isCanScroll = true;//是否能滚动
 
     public void setRightLayoutWidth(int rightLayoutWidth) {
         this.rightLayoutWidth = rightLayoutWidth;
     }
 
-    public void setLeftLayoutWidth(int leftLayoutWidth) {
-        this.leftLayoutWidth = leftLayoutWidth;
+    public void setContentLayoutWidth(int contentLayoutWidth) {
+        this.contentLayoutWidth = contentLayoutWidth;
     }
 
     public void setRange(int range) {
         this.range = range;
     }
 
-    private boolean isCanScroll = true;
 
     /***
      * 是否可以滑动
@@ -68,7 +70,7 @@ public class ZHAutoScrollView extends HorizontalScrollView {
 
     private void init(Context context, AttributeSet attrs) {
         setHorizontalScrollBarEnabled(false);
-        leftLayoutWidth = getScreenSize(getContext()).widthPixels;//  屏幕宽度
+        contentLayoutWidth = getScreenSize(getContext()).widthPixels;//  屏幕宽度
         rightLayoutWidth = dp2px(getContext(), 200);// 右边布局的宽度
         range = dp2px(getContext(), 70);// 移动多少开始切换阈值
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AutoScrollView);
@@ -76,7 +78,7 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         int ran = typedArray.getInteger(R.styleable.AutoScrollView_sv_move_range, 0);
         range = ran == 0 ? rightLayoutWidth / 2 : dp2px(context, ran);
         margin = dp2px(context, typedArray.getInteger(R.styleable.AutoScrollView_sv_margin, 0));
-        leftLayoutWidth -= margin;
+        contentLayoutWidth -= margin;
         typedArray.recycle();
         post(new Runnable() {
             @Override
@@ -89,25 +91,29 @@ public class ZHAutoScrollView extends HorizontalScrollView {
     private void apply() {
 //        isLeft = true;
         changeLayout();
-        scrollTo(0, 0);
+//        scrollTo(0, 0);
     }
 
+    ViewGroup rightLayout;
 
     private void changeLayout() {
         try {
             ViewGroup mainLayout = (ViewGroup) getChildAt(0);
-            ViewGroup left = (ViewGroup) mainLayout.getChildAt(0);
-            ViewGroup right = (ViewGroup) mainLayout.getChildAt(1);
-            if (left.getMeasuredWidth() == leftLayoutWidth && right.getMeasuredWidth() == rightLayoutWidth) {
+            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(1);
+            rightLayout = (ViewGroup) mainLayout.getChildAt(2);
+            if (contentLayout.getMeasuredWidth() == contentLayoutWidth && rightLayout.getMeasuredWidth() == rightLayoutWidth) {
                 Logger("状态未改变");
                 return;
             }
-            ViewGroup.LayoutParams layoutParams = left.getLayoutParams();
-            layoutParams.width = leftLayoutWidth;
-            left.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = right.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = contentLayout.getLayoutParams();
+            layoutParams.width = contentLayoutWidth;
+            contentLayout.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = rightLayout.getLayoutParams();
             layoutParams2.width = rightLayoutWidth;
-            right.setLayoutParams(layoutParams2);
+            rightLayout.setLayoutParams(layoutParams2);
+            if (rightLayout.getVisibility() == View.GONE) {
+                rightLayout.setVisibility(VISIBLE);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,7 +132,7 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         int scrollx = getScrollX();
         int action = ev.getAction();
         if (action == MotionEvent.ACTION_DOWN && scrollx >= rightLayoutWidth) {//展开的状态下
-            if (leftLayoutWidth - ev.getX() > rightLayoutWidth) {//点击的是左边的view
+            if (contentLayoutWidth - ev.getX() > rightLayoutWidth) {//点击的是左边的view
                 Logger("准备拦截");
                 isIntercept = true;
                 return true;
@@ -139,11 +145,12 @@ public class ZHAutoScrollView extends HorizontalScrollView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (!isCanScroll) return true;
+        if (!isCanScroll) return false;
         int scrollx = getScrollX();
         int action = ev.getAction();
         switch (action) {
             case MotionEvent.ACTION_MOVE:
+                Logger("移动");
                 break;
             case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
@@ -154,33 +161,14 @@ public class ZHAutoScrollView extends HorizontalScrollView {
                     Logger("拦截点击");
                     return true;
                 }
-                if (scrollx > range) {
-//                    isLeft = false;
-                    ZHAutoScrollViewHelper.getInstance().setLastView(this);
-                    smoothScrollTo(rightLayoutWidth, 0);
-                } else {
-                    smoothScrollTo(0, 0);
-                }
-
-
-//                if (isLeft) {
-//                    if (scrollx > range) {
-//                        isLeft = false;
-//                        ZHAutoScrollViewHelper.getInstance().setLastView(this);
-//                        smoothScrollTo(rightLayoutWidth, 0);
-//                    } else {
-//                        smoothScrollTo(0, 0);
-//                    }
-//                } else {
-//                    if (scrollx < (rightLayoutWidth - range)) {
-//                        isLeft = true;
-//                        smoothScrollTo(0, 0);
-//                    } else {
-//                        ZHAutoScrollViewHelper.getInstance().setLastView(this);
-//                        smoothScrollTo(rightLayoutWidth, 0);
-//                    }
-//                }
-                return true;
+                if (scrollx > 0)
+                    if (scrollx > range) {
+                        ZHAutoScrollViewHelper.getInstance().setLastView(this);
+                        smoothScrollTo(rightLayoutWidth, 0);
+                    } else {
+                        smoothScrollTo(0, 0);
+                    }
+                return scrollx > 0 ? true : false;
         }
         return super.onTouchEvent(ev);
     }
@@ -204,8 +192,10 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         });
     }
 
+    public boolean isDebug = true;
+
     private void Logger(String msg) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Log.e(TAG, msg);
         }
     }

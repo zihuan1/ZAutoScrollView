@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AutoScrollView">
-        <attr name="sv_left_width" format="integer" />
+        <!--左边隐藏的view的宽度-->
+        <!--<attr name="sv_left_width" format="integer" />-->
+        <!--右边隐藏的view的宽度-->
         <attr name="sv_right_width" format="integer" />
+        <!--滑动阈值超过此值后展开否则关闭，默认是sv_right_width或sv_left_width的二分之一-->
         <attr name="sv_move_range" format="integer" />
+        <!--view左右边距之和-->
         <attr name="sv_margin" format="integer" />
+        <!--1左滑 2右滑 3左右都可以滑动-->
+        <attr name="sv_model" format="integer" />
     </declare-styleable>
 </resources>

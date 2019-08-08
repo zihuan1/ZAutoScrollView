@@ -6,12 +6,12 @@ import android.util.Log;
 
 public class ZHAutoScrollViewHelper {
     private static ZHAutoScrollViewHelper mZhAutoScrollViewHelper;
+    private ZHAutoScrollView mZhAutoScrollView;
 
     public static ZHAutoScrollViewHelper getInstance() {
         return mZhAutoScrollViewHelper != null ? mZhAutoScrollViewHelper : (mZhAutoScrollViewHelper = new ZHAutoScrollViewHelper());
     }
 
-    private ZHAutoScrollView mZhAutoScrollView;
 
     /***
      * 设置滑动的view
