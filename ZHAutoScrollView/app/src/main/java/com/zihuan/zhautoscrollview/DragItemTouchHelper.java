@@ -1,12 +1,10 @@
 package com.zihuan.zhautoscrollview;
 
-import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,7 +18,7 @@ public class DragItemTouchHelper extends ItemTouchHelper.Callback {
         mList = list;
     }
 
-//    是设置是否滑动时间，以及拖拽的方向，如果是列表布局的话则拖拽方向有DOWN和UP，如果是网格布局的话有DOWN和UP和LEFT和RIGHT4个方向
+    //    是设置是否滑动时间，以及拖拽的方向，如果是列表布局的话则拖拽方向有DOWN和UP，如果是网格布局的话有DOWN和UP和LEFT和RIGHT4个方向
     @Override
     public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         Log.e(" ", "getMovementFlags()");
@@ -35,7 +33,7 @@ public class DragItemTouchHelper extends ItemTouchHelper.Callback {
         }
     }
 
-//    正在拖动中
+    //    正在拖动中
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         Log.e(" ", "onMove()");
@@ -55,7 +53,8 @@ public class DragItemTouchHelper extends ItemTouchHelper.Callback {
         mAdapter.notifyItemMoved(fromPosition, toPosition);
         return true;
     }
-//拖拽完成
+
+    //拖拽完成
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
 //                Toast.makeText(MainActivity.this, "拖拽完成 方向" + direction, Toast.LENGTH_SHORT).show();
@@ -63,7 +62,7 @@ public class DragItemTouchHelper extends ItemTouchHelper.Callback {
 
     }
 
-//    选中
+    //    选中
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         super.onSelectedChanged(viewHolder, actionState);
@@ -72,7 +71,7 @@ public class DragItemTouchHelper extends ItemTouchHelper.Callback {
 //            viewHolder.itemView.setBackgroundColor(Color.LTGRAY);
     }
 
-//    拖拽完成
+    //    松手
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         super.clearView(recyclerView, viewHolder);
