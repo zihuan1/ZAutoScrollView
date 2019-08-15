@@ -18,8 +18,8 @@ class MainActivity : Activity() {
             startActivity(Intent(this, LeftSlidDeleteActivity::class.java))
         }
         bt_left_del_2.setOnClickListener {
-            startActivity(Intent(this,DrawActivity::class.java))
-//            startActivity(Intent(this, LeftSlidDeleteActivity2::class.java))
+//            startActivity(Intent(this,DrawActivity::class.java))
+            startActivity(Intent(this, LeftSlidDeleteActivity2::class.java))
         }
         val formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true

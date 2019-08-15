@@ -98,8 +98,10 @@ public class ZHAutoScrollView extends HorizontalScrollView {
     private void changeLayout() {
         try {
             ViewGroup mainLayout = (ViewGroup) getChildAt(0);
-            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(1);
-            rightLayout = (ViewGroup) mainLayout.getChildAt(2);
+            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(0);
+            rightLayout = (ViewGroup) mainLayout.getChildAt(1);
+//            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(1);
+//            rightLayout = (ViewGroup) mainLayout.getChildAt(2);
             if (contentLayout.getMeasuredWidth() == contentLayoutWidth && rightLayout.getMeasuredWidth() == rightLayoutWidth) {
                 Logger("状态未改变");
                 return;

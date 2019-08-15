@@ -1,14 +1,13 @@
 package com.zihuan.zhautoscrollview.activity
 
 import android.app.Activity
-import android.databinding.DataBindingUtil.setContentView
 import android.os.Bundle
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.Toast
-import com.zihuan.zhautoscrollview.Demo3Adapter
 import com.zihuan.baseadapter.ViewOnItemClick
 import com.zihuan.baseadapter.ViewOnItemLongClick
+import com.zihuan.zhautoscrollview.Demo3Adapter
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
 import com.zihuan.zhautoscrollview.R
 import com.zihuan.zhautoscrollview.slideswaphelper.PlusItemSlideCallback
