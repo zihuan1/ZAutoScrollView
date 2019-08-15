@@ -93,13 +93,13 @@ public class ZHAutoScrollView extends HorizontalScrollView {
 //        scrollTo(0, 0);
     }
 
-    ViewGroup rightLayout;
+    View rightLayout;
 
     private void changeLayout() {
         try {
             ViewGroup mainLayout = (ViewGroup) getChildAt(0);
-            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(0);
-            rightLayout = (ViewGroup) mainLayout.getChildAt(1);
+            View contentLayout = mainLayout.getChildAt(0);
+            rightLayout = mainLayout.getChildAt(1);
 //            ViewGroup contentLayout = (ViewGroup) mainLayout.getChildAt(1);
 //            rightLayout = (ViewGroup) mainLayout.getChildAt(2);
             if (contentLayout.getMeasuredWidth() == contentLayoutWidth && rightLayout.getMeasuredWidth() == rightLayoutWidth) {
