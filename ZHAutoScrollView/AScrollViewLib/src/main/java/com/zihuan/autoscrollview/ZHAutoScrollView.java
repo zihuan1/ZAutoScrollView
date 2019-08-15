@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 
-import com.zihuan.baseadapter.R;
 
 
 /****

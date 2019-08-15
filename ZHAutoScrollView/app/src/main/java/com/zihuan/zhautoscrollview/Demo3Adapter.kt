@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
-import com.zihuan.baseadapter.R
 import com.zihuan.baseadapter.RecyclerViewHolder
 import com.zihuan.baseadapter.SpecialHolderAdapter
 import com.zihuan.zhautoscrollview.slideswaphelper.SlideSwapAction

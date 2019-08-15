@@ -6,11 +6,11 @@ import android.os.Bundle
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
 import android.widget.Toast
-import com.zihuan.baseadapter.R
 import com.zihuan.zhautoscrollview.Demo3Adapter
 import com.zihuan.baseadapter.ViewOnItemClick
 import com.zihuan.baseadapter.ViewOnItemLongClick
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
+import com.zihuan.zhautoscrollview.R
 import com.zihuan.zhautoscrollview.slideswaphelper.PlusItemSlideCallback
 import com.zihuan.zhautoscrollview.slideswaphelper.WItemTouchHelperPlus
 import kotlinx.android.synthetic.main.activity_left_slid_layout.*

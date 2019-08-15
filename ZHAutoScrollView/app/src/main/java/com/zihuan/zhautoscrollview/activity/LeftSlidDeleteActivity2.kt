@@ -4,9 +4,9 @@ import android.app.Activity
 import android.os.Bundle
 import android.support.v7.widget.helper.ItemTouchHelper
 import com.zihuan.autoscrollview.ZHAutoScrollViewHelper
-import com.zihuan.baseadapter.R
 import com.zihuan.zhautoscrollview.Demo2Adapter
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
+import com.zihuan.zhautoscrollview.R
 import kotlinx.android.synthetic.main.activity_left_slid_layout.*
 
 

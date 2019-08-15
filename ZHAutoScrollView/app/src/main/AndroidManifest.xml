@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zihuan.baseadapter">
+    package="com.zihuan.zhautoscrollview">
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,7 @@
         </activity>
         <activity android:name="com.zihuan.zhautoscrollview.activity.LeftSlidDeleteActivity" />
         <activity android:name="com.zihuan.zhautoscrollview.activity.LeftSlidDeleteActivity2" />
+        <activity android:name="com.zihuan.zhautoscrollview.activity.DrawActivity" />
 
     </application>
 

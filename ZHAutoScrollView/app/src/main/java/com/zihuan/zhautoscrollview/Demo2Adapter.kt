@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.zihuan.autoscrollview.ZHAutoScrollView
-import com.zihuan.baseadapter.R
 import com.zihuan.baseadapter.RecyclerAdapter
 import com.zihuan.baseadapter.RecyclerViewHolder
 import com.zihuan.zhautoscrollview.activity.LeftSlidDeleteActivity2

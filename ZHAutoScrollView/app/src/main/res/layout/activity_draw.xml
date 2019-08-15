@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zihuan.zhautoscrollview.CustomDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <!--左侧菜单-->
+    <!--layout_gravity控制菜单显示的侧面位置-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/color_fe68"
+        android:clickable="true"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="左边的菜单" />
+        <!--fitsSystemWindows控制布局在沉浸状态时保持内容在状态栏以下-->
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="#fff"
+            android:textSize="50sp" />
+    </RelativeLayout>
+
+    <!--右侧菜单-->
+    <!--如果是两个抽屉那么layout_gravity属性值不能相同,即一左一右-->
+    <!--现在fitsSystemWindow属性并没有解决右侧菜单初始控件与状态栏重叠问题-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="右边的菜单" />
+    </LinearLayout>
+
+</com.zihuan.zhautoscrollview.CustomDrawerLayout>

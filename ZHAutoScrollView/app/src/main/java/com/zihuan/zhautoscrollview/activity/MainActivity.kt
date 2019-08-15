@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
-import com.zihuan.baseadapter.R
+import com.zihuan.zhautoscrollview.R
 import kotlinx.android.synthetic.main.activity_home.*
 
 
@@ -18,7 +18,8 @@ class MainActivity : Activity() {
             startActivity(Intent(this, LeftSlidDeleteActivity::class.java))
         }
         bt_left_del_2.setOnClickListener {
-            startActivity(Intent(this, LeftSlidDeleteActivity2::class.java))
+            startActivity(Intent(this,DrawActivity::class.java))
+//            startActivity(Intent(this, LeftSlidDeleteActivity2::class.java))
         }
         val formatStrategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)  // (Optional) Whether to show thread info or not. Default true

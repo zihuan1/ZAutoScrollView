@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ZHAutoScrollView</string>
+    <string name="left">左边</string>
+    <string name="right">右边👉</string>
 </resources>
