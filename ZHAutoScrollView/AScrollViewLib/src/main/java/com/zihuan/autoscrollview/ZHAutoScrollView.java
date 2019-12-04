@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
 
 
-
 /****
  */
 public class ZHAutoScrollView extends HorizontalScrollView {
@@ -65,7 +64,9 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         isCanScroll = canScroll;
     }
 
-    int screenWidth;
+    public boolean getIsCanScroll() {
+        return isCanScroll;
+    }
 
     private void init(Context context, AttributeSet attrs) {
         setHorizontalScrollBarEnabled(false);
