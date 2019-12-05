@@ -11,7 +11,6 @@ import com.zihuan.zhautoscrollview.slideswaphelper.SlideSwapAction
 
 class Demo3Adapter(`object`: Any?) : SpecialHolderAdapter<Demo3Adapter.LeftScrollHolder>(`object`), ZRecyclerData {
 
-
     override fun convert(holder: LeftScrollHolder, position: Int, context: Context) {
         var entity = getEntity<String>(position)
         var item_text = holder.getTView<TextView>(R.id.item_text)
@@ -23,9 +22,7 @@ class Demo3Adapter(`object`: Any?) : SpecialHolderAdapter<Demo3Adapter.LeftScrol
         }
     }
 
-    override fun getLayoutResId(): Int {
-        return R.layout.rv_layout
-    }
+    override fun getLayoutResId() = R.layout.rv_layout
 
     override fun createHolder(view: View): LeftScrollHolder {
         return LeftScrollHolder(view)
@@ -45,6 +42,5 @@ class Demo3Adapter(`object`: Any?) : SpecialHolderAdapter<Demo3Adapter.LeftScrol
             return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, scale)
         }
     }
-
 
 }
