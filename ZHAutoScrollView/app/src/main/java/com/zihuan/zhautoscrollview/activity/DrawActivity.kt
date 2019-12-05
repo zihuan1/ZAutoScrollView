@@ -2,8 +2,8 @@ package com.zihuan.zhautoscrollview.activity
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
 import android.view.Gravity
 import android.widget.Toast
 import com.zihuan.zhautoscrollview.R

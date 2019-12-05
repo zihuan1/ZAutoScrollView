@@ -16,16 +16,12 @@ class Demo2Adapter(`object`: Any?) : RecyclerAdapter(`object`) {
         var item_text = holder.getTView<TextView>(R.id.item_text)
         var rightLayout = holder.getView(R.id.right_Layout)
         item_text.text = entity
-        if (position % 2 == 0) {
-            scroll_item.setIsCanScroll(false)
-        } else {
-            scroll_item.setIsCanScroll(true)
-        }
+        scroll_item.isCanScroll = position % 2 != 0
         item_text.setOnClickListener {
             Toast.makeText(context, "点击$position", Toast.LENGTH_SHORT).show()
         }
         item_text.setOnLongClickListener {
-//            添加是否可拖动的逻辑
+            //            添加是否可拖动的逻辑
             Toast.makeText(context, "长按$position", Toast.LENGTH_SHORT).show()
             (context as LeftSlidDeleteActivity2).itemTouchHelper.startDrag(holder)
             return@setOnLongClickListener true

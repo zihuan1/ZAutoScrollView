@@ -6,9 +6,10 @@ import android.view.View
 import android.widget.TextView
 import com.zihuan.baseadapter.RecyclerViewHolder
 import com.zihuan.baseadapter.SpecialHolderAdapter
+import com.zihuan.view.crvlibrary.ZRecyclerData
 import com.zihuan.zhautoscrollview.slideswaphelper.SlideSwapAction
 
-class Demo3Adapter(`object`: Any?) : SpecialHolderAdapter<Demo3Adapter.LeftScrollHolder>(`object`) {
+class Demo3Adapter(`object`: Any?) : SpecialHolderAdapter<Demo3Adapter.LeftScrollHolder>(`object`), ZRecyclerData {
 
 
     override fun convert(holder: LeftScrollHolder, position: Int, context: Context) {

@@ -2,7 +2,7 @@ package com.zihuan.zhautoscrollview.activity
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper
 import com.zihuan.autoscrollview.ZHAutoScrollViewHelper
 import com.zihuan.zhautoscrollview.Demo2Adapter
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
@@ -22,7 +22,6 @@ class LeftSlidDeleteActivity2 : Activity() {
             mDemoData.add("昵称$i")
         }
         rv_left_slid.buildVerticalLayout(demoAdapter)
-                .setPullEnabled(false)
                 .setData(mDemoData)
         var zhLeftScrollViewHelper = ZHAutoScrollViewHelper.getInstance()
         zhLeftScrollViewHelper.bindRecyclerView(rv_left_slid.getRecyclerView())
@@ -31,12 +30,4 @@ class LeftSlidDeleteActivity2 : Activity() {
     }
 
     lateinit var itemTouchHelper: ItemTouchHelper
-//    override fun setOnItemLongClickListener(view: View?, postion: Int) {
-//        Toast.makeText(this, "长按$postion", Toast.LENGTH_SHORT).show()
-//        itemTouchHelper.startDrag(rv_left_slid.getRecyclerView().getChildViewHolder(rv_left_slid.getRecyclerView().getChildAt(postion)))
-//    }
-//
-//    override fun setOnItemClickListener(view: View?, postion: Int) {
-//        Toast.makeText(this, "点击$postion", Toast.LENGTH_SHORT).show()
-//    }
 }

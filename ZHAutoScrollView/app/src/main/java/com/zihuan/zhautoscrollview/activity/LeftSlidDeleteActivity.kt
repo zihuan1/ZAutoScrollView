@@ -2,7 +2,7 @@ package com.zihuan.zhautoscrollview.activity
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.widget.helper.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper
 import android.view.View
 import android.widget.Toast
 import com.zihuan.baseadapter.ViewOnItemClick
@@ -15,12 +15,10 @@ import com.zihuan.zhautoscrollview.slideswaphelper.WItemTouchHelperPlus
 import kotlinx.android.synthetic.main.activity_left_slid_layout.*
 
 
-class LeftSlidDeleteActivity : Activity(), ViewOnItemClick ,ViewOnItemLongClick{
+class LeftSlidDeleteActivity : Activity(), ViewOnItemClick, ViewOnItemLongClick {
     override fun setOnItemLongClickListener(view: View?, postion: Int) {
         Toast.makeText(this, "长按$postion", Toast.LENGTH_SHORT).show()
         itemTouchHelper.startDrag(rv_left_slid.getRecyclerView().getChildViewHolder(rv_left_slid.getRecyclerView().getChildAt(postion)))
-
-
     }
 
     override fun setOnItemClickListener(view: View?, postion: Int) {
@@ -37,7 +35,6 @@ class LeftSlidDeleteActivity : Activity(), ViewOnItemClick ,ViewOnItemLongClick{
         }
 
         rv_left_slid.buildVerticalLayout(demoAdapter)
-                .setPullEnabled(false)
                 .setData(mDemoData)
         //侧滑布局被覆盖
 //        val callback = PlusItemSlideCallback()
@@ -51,6 +48,7 @@ class LeftSlidDeleteActivity : Activity(), ViewOnItemClick ,ViewOnItemLongClick{
         itemTouchHelper = ItemTouchHelper(DragItemTouchHelper(demoAdapter, mDemoData))
         itemTouchHelper.attachToRecyclerView(rv_left_slid.getRecyclerView())
     }
+
     lateinit var itemTouchHelper: ItemTouchHelper
 
 }
