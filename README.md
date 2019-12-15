@@ -1,4 +1,7 @@
 # ZAutoScrollView
 
-implementation 'com.github.zihuan1:ZAutoScrollView:1.3.1'
+    dependencies {
+ 
+	         implementation 'com.github.zihuan1:view-autoscrollview:latest.integration'
+	  }
  
