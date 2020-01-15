@@ -19,7 +19,7 @@ public class ZHAutoScrollViewHelper {
      */
     public void setLastView(ZHAutoScrollView zhAutoScrollView) {
         if (isHasLastView() && mZhAutoScrollView != zhAutoScrollView) {
-            mZhAutoScrollView.reset();
+            mZhAutoScrollView.resetSmoothScrollTo();
         }
         mZhAutoScrollView = zhAutoScrollView;
     }
@@ -40,7 +40,7 @@ public class ZHAutoScrollViewHelper {
                 super.onScrollStateChanged(recyclerView, newState);
                 Log.e("状态", "newState " + newState);
                 if (newState == RecyclerView.SCROLL_STATE_DRAGGING && isHasLastView()) {
-                    mZhAutoScrollView.reset();
+                    mZhAutoScrollView.resetSmoothScrollTo();
                 }
 
             }

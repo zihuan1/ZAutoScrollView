@@ -183,7 +183,30 @@ public class ZHAutoScrollView extends HorizontalScrollView {
     /***
      * 滑动复位
      */
+    @Deprecated
     public void reset() {
+        if (getScrollX() <= 0) return;
+        post(new Runnable() {
+            @Override
+            public void run() {
+                smoothScrollTo(0, 0);
+                Logger("复位");
+            }
+        });
+    }
+
+    public void resetSmoothScrollTo() {
+        if (getScrollX() <= 0) return;
+        post(new Runnable() {
+            @Override
+            public void run() {
+                smoothScrollTo(0, 0);
+                Logger("复位");
+            }
+        });
+    }
+
+    public void resetScrollTo() {
         if (getScrollX() <= 0) return;
         post(new Runnable() {
             @Override
