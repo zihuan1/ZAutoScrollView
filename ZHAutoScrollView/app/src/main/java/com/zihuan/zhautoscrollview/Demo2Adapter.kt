@@ -30,6 +30,11 @@ class Demo2Adapter(`object`: Any?) : RecyclerAdapter(`object`), ZRecyclerData {
         rightLayout.setOnClickListener {
             Log.e("点击", "删除 $entity")
             baseDatas.removeAt(position)
+//            删除后复位方式
+//            方式1
+//            scroll_item.resetScroll()
+//            notifyDataSetChanged()
+//            方式2
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, baseDatas.size - 1)
         }

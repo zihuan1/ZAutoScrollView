@@ -195,7 +195,7 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         });
     }
 
-    public void resetSmoothScrollTo() {
+    public void resetSmoothScroll() {
         if (getScrollX() <= 0) return;
         post(new Runnable() {
             @Override
@@ -206,18 +206,18 @@ public class ZHAutoScrollView extends HorizontalScrollView {
         });
     }
 
-    public void resetScrollTo() {
+    public void resetScroll() {
         if (getScrollX() <= 0) return;
         post(new Runnable() {
             @Override
             public void run() {
-                smoothScrollTo(0, 0);
+                scrollTo(0, 0);
                 Logger("复位");
             }
         });
     }
 
-    public boolean isDebug = true;
+    public boolean isDebug = BuildConfig.DEBUG;
 
     private void Logger(String msg) {
         if (isDebug) {
