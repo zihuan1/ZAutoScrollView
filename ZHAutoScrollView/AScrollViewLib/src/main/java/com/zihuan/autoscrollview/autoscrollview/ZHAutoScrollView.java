@@ -1,4 +1,4 @@
-package com.zihuan.autoscrollview;
+package com.zihuan.autoscrollview.autoscrollview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.HorizontalScrollView;
+
+import com.zihuan.autoscrollview.BuildConfig;
+import com.zihuan.autoscrollview.R;
 
 
 /****

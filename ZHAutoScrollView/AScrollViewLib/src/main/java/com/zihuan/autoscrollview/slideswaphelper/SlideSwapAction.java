@@ -1,4 +1,4 @@
-package com.zihuan.zhautoscrollview.slideswaphelper;
+package com.zihuan.autoscrollview.slideswaphelper;
 
 import android.view.View;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.zihuan.zhautoscrollview.slideswaphelper;
+package com.zihuan.autoscrollview.slideswaphelper;
 
 import android.graphics.Canvas;
 import androidx.core.view.ViewCompat;

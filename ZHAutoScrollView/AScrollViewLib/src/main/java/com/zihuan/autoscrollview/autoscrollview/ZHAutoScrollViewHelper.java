@@ -1,4 +1,4 @@
-package com.zihuan.autoscrollview;
+package com.zihuan.autoscrollview.autoscrollview;
 
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
