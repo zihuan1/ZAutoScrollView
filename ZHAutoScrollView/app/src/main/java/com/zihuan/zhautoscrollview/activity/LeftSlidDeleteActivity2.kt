@@ -3,7 +3,7 @@ package com.zihuan.zhautoscrollview.activity
 import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.ItemTouchHelper
-import com.zihuan.autoscrollview.ZHAutoScrollViewHelper
+import com.zihuan.autoscrollview.autoscrollview.ZHAutoScrollViewHelper
 import com.zihuan.zhautoscrollview.Demo2Adapter
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
 import com.zihuan.zhautoscrollview.R

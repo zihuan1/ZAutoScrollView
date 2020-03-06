@@ -28,7 +28,8 @@ import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
-import com.zihuan.zhautoscrollview.R;
+
+import com.zihuan.autoscrollview.R;
 
 import java.util.ArrayList;
 import java.util.List;

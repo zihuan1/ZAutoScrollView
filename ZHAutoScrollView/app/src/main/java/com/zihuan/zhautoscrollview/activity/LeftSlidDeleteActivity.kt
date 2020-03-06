@@ -10,8 +10,8 @@ import com.zihuan.baseadapter.ViewOnItemLongClick
 import com.zihuan.zhautoscrollview.Demo3Adapter
 import com.zihuan.zhautoscrollview.DragItemTouchHelper
 import com.zihuan.zhautoscrollview.R
-import com.zihuan.zhautoscrollview.slideswaphelper.PlusItemSlideCallback
-import com.zihuan.zhautoscrollview.slideswaphelper.WItemTouchHelperPlus
+import com.zihuan.autoscrollview.slideswaphelper.PlusItemSlideCallback
+import com.zihuan.autoscrollview.slideswaphelper.WItemTouchHelperPlus
 import kotlinx.android.synthetic.main.activity_left_slid_layout.*
 
 

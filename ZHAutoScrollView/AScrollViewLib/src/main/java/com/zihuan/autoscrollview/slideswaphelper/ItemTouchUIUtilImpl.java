@@ -17,13 +17,15 @@
 package com.zihuan.autoscrollview.slideswaphelper;
 
 import android.graphics.Canvas;
+
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.ItemTouchUIUtil;
+
 import android.view.View;
 
-import com.zihuan.baseadapter.R;
+import com.zihuan.autoscrollview.R;
 
 
 /**
@@ -78,8 +80,8 @@ class ItemTouchUIUtilImpl {
 
         @Override
         public void clearView(View view) {
-            ViewCompat.setTranslationX(view, 0f);
-            ViewCompat.setTranslationY(view, 0f);
+            view.setTranslationX(0f);
+            view.setTranslationY(0f);
         }
 
         @Override
@@ -90,8 +92,8 @@ class ItemTouchUIUtilImpl {
         @Override
         public void onDraw(Canvas c, RecyclerView recyclerView, View view,
                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            ViewCompat.setTranslationX(view, dX);
-            ViewCompat.setTranslationY(view, dY);
+            view.setTranslationX(dX);
+            view.setTranslationY(dY);
         }
 
         @Override
